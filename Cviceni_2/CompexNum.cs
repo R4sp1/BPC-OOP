@@ -50,9 +50,20 @@ namespace Cviceni_2
         }
 
 
-        public CompexNum Sdruzena()
+        public CompexNum Sdruzena() //Vraci sdruzene kompexni cislo
         {
             return new CompexNum(Real, -Imag);
+        }
+
+
+        public double Modul() //Vraci modul kompexniho cisla
+        {
+            return Math.Sqrt(Real*Real + Imag*Imag);
+        }
+
+        public double Argument() //Vraci argument kompexniho cisla
+        {
+            return Math.Atan2(Imag, Real);
         }
 
         public override string ToString() //Vypis do retezce

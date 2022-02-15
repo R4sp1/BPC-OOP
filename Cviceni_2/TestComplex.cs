@@ -8,13 +8,13 @@ namespace Cviceni_2
 
         public static void Test(CompexNum skutecna, CompexNum ocekavana, string nazev)
         {
-            if(skutecna == ocekavana)
+            if(Math.Abs(skutecna.Real - ocekavana.Real) < Epsilon && Math.Abs(skutecna.Imag - ocekavana.Imag) < Epsilon)
             {
                 Console.WriteLine($"{nazev}: OK");
             }
             else
             {
-                Console.WriteLine($"{nazev}: Chyba: Ocekavana hodnota: {ocekavana}, Skutecna hodnota: {skutecna}");
+                Console.WriteLine($"Chyba {nazev}: Ocekavana hodnota: {ocekavana}, Skutecna hodnota: {skutecna}");
             }
         }
     }
