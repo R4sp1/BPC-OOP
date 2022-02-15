@@ -44,6 +44,17 @@ namespace Cviceni_2
             return !(a == b); //Uz mam definovano v opeeratoru ==
         }
 
+        public static CompexNum operator -(CompexNum a) //Unarni operator -
+        {
+            return new CompexNum(-a.Real, -a.Imag);
+        }
+
+
+        public CompexNum Sdruzena()
+        {
+            return new CompexNum(Real, -Imag);
+        }
+
         public override string ToString() //Vypis do retezce
         {
             if (Imag < 0)
@@ -55,6 +66,5 @@ namespace Cviceni_2
                 return string.Format("{0}+{1}j", Real, Imag);
             }
         }
-
     }
 }
