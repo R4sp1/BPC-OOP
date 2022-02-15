@@ -12,6 +12,7 @@ namespace Cviceni_2
             CompexNum z = x + y;
             Console.WriteLine(z);
             Console.WriteLine(z.Sdruzena());
+            TestComplex.Test(z, new CompexNum(3.2, -1), "Test scitani");
             Console.ReadLine();
         }
     }
