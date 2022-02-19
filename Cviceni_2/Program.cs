@@ -7,7 +7,7 @@ namespace Cviceni_2
     {
         static void Main(string[] args)
         {
-            CompexNum x = new CompexNum(1.2, 0.5); // vytvoření instance třídy
+            CompexNum x = new CompexNum(1.1, 0.5); // vytvoření instance třídy
             CompexNum y = new CompexNum(2.0, -1.5); // vytvoření instance třídy
             TestComplex.Test(x + y, new CompexNum(3.2, -1), "Test scitani");
             TestComplex.Test(x - y, new CompexNum(-0.8, +2), "Test odcitani");
