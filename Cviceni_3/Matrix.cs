@@ -1,28 +1,33 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 
 namespace Cviceni_3
 {
-	public class Matrix
-	{
-        public double[,] Matrix;
+    public class Matrix
+    {
+        public double[,] Matice;
 
-		public Matrix(double[,] matrix)
-		{
-            Matrix = matrix;
+        public Matrix(double[,] matrix)
+        {
+            Matice = matrix;
 
-		}
+        }
 
         public static Matrix operator +(Matrix a, Matrix b) //Scitani matic
         {
             try
             {
                 var mtx = new Matrix(
-                    new double[a.Matrix.GetLength(0), a.Matrix.GetLength(1)]);
-                for (int i = 0; i < a.Matrix.GetLength(0); i++)
+                    new double[a.Matice.GetLength(0), a.Matice.GetLength(1)]);
+                for (int i = 0; i < a.Matice.GetLength(0); i++)
                 {
-                    for (int j = 0; j < a.Matrix.GetLength(1); j++)
+                    for (int j = 0; j < a.Matice.GetLength(1); j++)
                     {
-                        mtx.Matrix[i, j] = a.Matrix[i, j] + b.Matrix[i, j];
+                        mtx.Matice[i, j] = a.Matice[i, j] + b.Matice[i, j];
                     }
                 }
                 return mtx;
@@ -40,28 +45,22 @@ namespace Cviceni_3
         {
             return new Matrix();
         }
-
         public static Matrix operator *(Matrix a, Matrix b) //Nasobeni matic
         {
             return new Matrix();
         }
-
         public static bool operator ==(Matrix a, Matrix b)
         {
             return a == b;
         }
-
         public static bool operator !=(Matrix a, Matrix b) //Pro operator == musim definovat take !=
         {
             return !(a == b); //Uz mam definovano v opeeratoru ==
         }
-
         public static Matrix operator -(Matrix a) //Unarni operator -
         {
             return new Matrix();
         }
-
-
         public Matrix Determinant() //Vraci determinant matice
         {
             return new Matrix();
@@ -71,11 +70,11 @@ namespace Cviceni_3
         public override string ToString() //Vypis do retezce
         {
             string output = "";
-            for (int i = 0; i < Matrix.GetLength(0); i++)
+            for (int i = 0; i < Matice.GetLength(0); i++)
             {
-                for (int j = 0; j < Matrix.GetLength(1); j++)
+                for (int j = 0; j < Matice.GetLength(1); j++)
                 {
-                    if (j != Matrix.GetLength(0) - 1) output += $"{Matrix[i, j]},";
+                    if (j != Matice.GetLength(0) - 1) output += $"{Matice[i, j]},";
                 }
                 output += Environment.NewLine;
             }

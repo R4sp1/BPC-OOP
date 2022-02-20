@@ -1,4 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
 
 
 namespace Cviceni_3
@@ -7,16 +12,16 @@ namespace Cviceni_3
     {
         static void Main(string[] args)
         {
-            double[,] mat1= new double[,] { 
-                { 1, 5, 5 }, 
-                { 3, 4, 5 }, 
+            double[,] mat1 = new double[,] {
+                { 1, 5, 5 },
+                { 3, 4, 5 },
                 { 5, 6, 5 }
 
 
             };
-            double[,] mat2 = new double[,] { 
-                { 1, 5, 5 }, 
-                { 3, 4, 5 }, 
+            double[,] mat2 = new double[,] {
+                { 1, 5, 5 },
+                { 3, 4, 5 },
                 { 5, 6, 5 }
             };
 
@@ -25,6 +30,7 @@ namespace Cviceni_3
 
             Console.WriteLine("Scitanie:");
             Console.WriteLine(m1 + m2);
+ 
         }
     }
 }
