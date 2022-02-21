@@ -9,7 +9,7 @@ namespace Cviceni_3
         public double[,] Matice;
 
 
-        public Matrix(double[,] matrix)                     //Konstruktor
+        public Matrix(double[,] matrix)                                                                     //Konstruktor
         {
             Matice = matrix;
 
@@ -149,23 +149,23 @@ namespace Cviceni_3
             }
             else
             {
-                throw new Exception("Rozmery matice jsou vetsi nez 3x3");                               //Vyhozeni nove vyjimky pokud je matice vetsi nez 3x3
+                throw new Exception("Rozmery matice jsou vetsi nez 3x3");                                   //Vyhozeni nove vyjimky pokud je matice vetsi nez 3x3
             }
 
         }
 
 
-        public override string ToString()                                                               //Vypis do retezce
+        public override string ToString()                                                                   //Vypis do retezce
         {
-            var rowCount = Matice.GetLength(0);                                                         //Ziska pocet radku
-            var ColCount = Matice.GetLength(1);                                                         //Ziska pocet sloupcu
-            string output = "";                                                                         //Vytvoreni stringu output
+            var rowCount = Matice.GetLength(0);                                                             //Ziska pocet radku
+            var ColCount = Matice.GetLength(1);                                                             //Ziska pocet sloupcu
+            string output = "";                                                                             //Vytvoreni stringu output
 
             for (int i = 0; i < rowCount; i++)
             {
                 for (int j = 0; j < ColCount; j++)
                 {
-                    output += $"{Matice[i, j]}\t";                                                      //Prida do outputu radek matice
+                    output += $"{Matice[i, j]}\t";                                                          //Prida do outputu radek matice
                 }
                 output += Environment.NewLine;
             }

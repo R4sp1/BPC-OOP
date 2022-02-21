@@ -10,10 +10,10 @@ namespace Cviceni_3
         static void Main(string[] args)
         {
             double[,] mat1 = new double[,] {
-                { 1, 3, 5},
-                { 9, 7, 7},
-                { 8, 2, 5},
-                //{ 3, 4, 8, 1 }
+                { 1, 3, 5, 1},
+                { 9, 7, 7, 1},
+                { 8, 2, 5, 1},
+                { 3, 4, 8, 1 }
             };
 
             double[,] mat2 = new double[,] {
@@ -38,10 +38,10 @@ namespace Cviceni_3
 
             if(m1 == m2)
             {
-                Console.WriteLine("Matice se rovnaji");
+                Console.WriteLine("Matice jsou stejne");
             } else
             {
-                Console.WriteLine("Matice se nerovnaji");
+                Console.WriteLine("Matice nejsou stejne");
             }
 
             Console.WriteLine($"Determinant: {m1.Determinant()}\n");
