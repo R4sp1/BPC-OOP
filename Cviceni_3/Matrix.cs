@@ -9,22 +9,46 @@ namespace Cviceni_3
         public double[,] Matice;
 
 
-        public Matrix(double[,] matrix)
+        public Matrix(double[,] matrix)                     //Konstruktor
         {
             Matice = matrix;
 
         }
 
-        public static Matrix operator +(Matrix a, Matrix b) //Scitani matic
+        public static Matrix operator +(Matrix a, Matrix b)                                                 //Scitani matic
+        {
+            try                                                                                             //try a catch pro osetreni vyjimek
+            {
+                var mtx = new Matrix(new double[a.Matice.GetLength(0), a.Matice.GetLength(1)]);             //Vytvoreni nove matice
+                for (int i = 0; i < a.Matice.GetLength(0); i++)                                             //Prochazeni jednotlivych radku
+                {
+                    for (int j = 0; j < a.Matice.GetLength(1); j++)                                         //a sloupcu
+                    {
+                        mtx.Matice[i, j] = a.Matice[i, j] + b.Matice[i, j];                                 //Scitani prvku v matici
+                    }
+                }
+                return mtx;                                                                                 //Vraceni nove matice, ktera obsahuje soucet dvou vstupnich matic
+            }
+            catch
+            {
+                Console.WriteLine("Chyba: Matice nejsou stejne velke");                                     //Pokud matice nejsou stejne velke vratime chybu
+
+            }
+
+            var hal = new Matrix(new double[0, 0]);                                                         //Vytvoreni prazdne matice protoze musime neco vratit i kdyz nastane chyba
+            return hal;
+        }
+
+        public static Matrix operator -(Matrix a, Matrix b)                                                 //Odcitani matic
         {
             try
             {
-                var mtx = new Matrix(new double[a.Matice.GetLength(0), a.Matice.GetLength(1)]);
+                var mtx = new Matrix(new double[a.Matice.GetLength(0), a.Matice.GetLength(1)]);             
                 for (int i = 0; i < a.Matice.GetLength(0); i++)
                 {
                     for (int j = 0; j < a.Matice.GetLength(1); j++)
                     {
-                        mtx.Matice[i, j] = a.Matice[i, j] + b.Matice[i, j];
+                        mtx.Matice[i, j] = a.Matice[i, j] - b.Matice[i, j];                                 //Funguje stejne jako scitani jen v tomto pripade odcitame
                     }
                 }
                 return mtx;
@@ -34,34 +58,10 @@ namespace Cviceni_3
                 Console.WriteLine("Chyba: Matice nejsou stejne velke");
 
             }
-
             var hal = new Matrix(new double[0, 0]);
             return hal;
         }
-
-        public static Matrix operator -(Matrix a, Matrix b) //Odcitani matic
-        {
-            try
-            {
-                var mtx = new Matrix(new double[a.Matice.GetLength(0), a.Matice.GetLength(1)]);
-                for (int i = 0; i < a.Matice.GetLength(0); i++)
-                {
-                    for (int j = 0; j < a.Matice.GetLength(1); j++)
-                    {
-                        mtx.Matice[i, j] = a.Matice[i, j] - b.Matice[i, j];
-                    }
-                }
-                return mtx;
-            }
-            catch
-            {
-                Console.WriteLine("Chyba: Matice nejsou stejne velke");
-
-            }
-            var hal = new Matrix(new double[0, 0]);
-            return hal;
-        }
-        public static Matrix operator *(Matrix a, Matrix b) //Nasobeni matic
+        public static Matrix operator *(Matrix a, Matrix b)                                                 //Nasobeni matic
         {
             try
             {
@@ -98,7 +98,7 @@ namespace Cviceni_3
                 {
                     for (int j = 0; j < a.Matice.GetLength(1); j++)
                     {
-                        if (a.Matice[i, j] != b.Matice[i, j]) return false;
+                        if (a.Matice[i, j] != b.Matice[i, j]) return false;                                 //Prochazeni matici a porovnavani obsahu
                     }
                 }
             }
@@ -108,23 +108,26 @@ namespace Cviceni_3
             }
             return true;
         }
-        public static bool operator !=(Matrix a, Matrix b) //Pro operator == musim definovat take !=
+
+        public static bool operator !=(Matrix a, Matrix b)                                                  //Pro operator == musim definovat take !=
         {
-            return !(a == b); //Uz mam definovano v operatoru ==
+            return !(a == b);                                                                               //Uz mam definovano v operatoru ==, vracim jen opacnou hodnotu
         }
-        public static Matrix operator -(Matrix a) //Unarni operator -
+
+        public static Matrix operator -(Matrix a)                                                           //Unarni operator -
         {
             var mtx = new Matrix(new double[a.Matice.GetLength(0), a.Matice.GetLength(1)]);
             for (int i = 0; i < a.Matice.GetLength(1); i++)
             {
                 for (int j = 0; j < a.Matice.GetLength(0); j++)
                 {
-                    mtx.Matice[j, i] = a.Matice[j, i] * (-1);
+                    mtx.Matice[j, i] = a.Matice[j, i] * (-1);                                               //Prochazim matici a kazdy prvek nasobim -1
                 }
             }
 
             return mtx;
         }
+
         public double Determinant() //Vraci determinant matice
         {
             if (Matice.GetLength(0) == Matice.GetLength(1) && Matice.GetLength(1) == 1)
@@ -146,23 +149,23 @@ namespace Cviceni_3
             }
             else
             {
-                throw new Exception("Rozmery matice jsou vetsi nez 3x3");
+                throw new Exception("Rozmery matice jsou vetsi nez 3x3");                               //Vyhozeni nove vyjimky pokud je matice vetsi nez 3x3
             }
 
         }
 
 
-        public override string ToString()           //Vypis do retezce
+        public override string ToString()                                                               //Vypis do retezce
         {
-            var rowCount = Matice.GetLength(0);     //Ziska pocet radku
-            var ColCount = Matice.GetLength(1);     //Ziska pocet sloupcu
-            string output = "";                     //Vytvoreni stringu output
+            var rowCount = Matice.GetLength(0);                                                         //Ziska pocet radku
+            var ColCount = Matice.GetLength(1);                                                         //Ziska pocet sloupcu
+            string output = "";                                                                         //Vytvoreni stringu output
 
             for (int i = 0; i < rowCount; i++)
             {
                 for (int j = 0; j < ColCount; j++)
                 {
-                    output += $"{Matice[i, j]}\t";  //Prida do outputu radek matice
+                    output += $"{Matice[i, j]}\t";                                                      //Prida do outputu radek matice
                 }
                 output += Environment.NewLine;
             }
