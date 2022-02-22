@@ -9,14 +9,14 @@ namespace Cviceni_3
     {
         static void Main(string[] args)
         {
-            double[,] mat1 = new double[,] {
-                { 1, 3, 5},
-                { 9, 7, 7},
-                { 8, 2, 5}
+            var mat1 = new double[,] {
+                { 1, 1, 1 },
+                { 1, 1, 1 },
+                { 1, 1, 1 }
                 //{ 3, 4, 8}
             };
 
-            double[,] mat2 = new double[,] {
+            var mat2 = new double[,] {
                 { 1, 1, 1 },
                 { 1, 1, 1 },
                 { 1, 1, 1 },

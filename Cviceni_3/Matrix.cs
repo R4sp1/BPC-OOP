@@ -43,7 +43,7 @@ namespace Cviceni_3
         {
             try
             {
-                var mat = new Matrix(new double[a.Matice.GetLength(0), a.Matice.GetLength(1)]);             
+                var mat = new Matrix(new double[a.Matice.GetLength(0), a.Matice.GetLength(1)]);
                 for (int i = 0; i < a.Matice.GetLength(0); i++)
                 {
                     for (int j = 0; j < a.Matice.GetLength(1); j++)
@@ -69,17 +69,17 @@ namespace Cviceni_3
                 var c = mat.Matice;
                 for (int i = 0; i < c.GetLength(0); i++)
                 {
-                    for (int j = 0; j < c.GetLength(1); j++)
+                    for (int j = 0; j < c.GetLength(1); j++)                                                //Prochazeni radku a sloupcu matice
                     {
-                        c[i, j] = 0;
+                        c[i, j] = 0;                                                                        //Inicializace matice v promene c
                         for (int k = 0; k < a.Matice.GetLength(1); k++)
                         {
-                            c[i, j] = c[i, j] + a.Matice[i, k] * b.Matice[k, j];
+                            c[i, j] = c[i, j] + a.Matice[i, k] * b.Matice[k, j];                            //Nasobeni radku se sloupcem
                         }
                     }
                 }
                 mat.Matice = c;
-                return mat;
+                return mat;                                                                                 //Vraci novou matici
             }
             catch
             {
