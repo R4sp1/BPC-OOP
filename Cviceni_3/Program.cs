@@ -10,7 +10,7 @@ namespace Cviceni_3
         static void Main(string[] args)
         {
             var mat1 = new double[,] {
-                { 1.5, 1, 1 },
+                { 1, 1, 1 },
                 { 1, 1, 1 },
                 { 1, 1, 1 }
                 //{ 3, 4, 8}
@@ -36,10 +36,11 @@ namespace Cviceni_3
 
             Console.WriteLine();
 
-            if(m1 == m2)
+            if (m1 == m2)
             {
                 Console.WriteLine("Matice jsou stejne");
-            } else
+            }
+            else
             {
                 Console.WriteLine("Matice nejsou stejne");
             }

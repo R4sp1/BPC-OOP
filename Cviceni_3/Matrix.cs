@@ -72,7 +72,7 @@ namespace Cviceni_3
                     for (int j = 0; j < c.GetLength(1); j++)                                                //Prochazeni radku a sloupcu matice
                     {
                         c[i, j] = 0;                                                                        //Inicializace matice v promene c
-                        for (int k = 0; k < a.Matice.GetLength(1); k++)
+                        for (int k = 0; k < a.Matice.GetLength(1); k++)                                     //V kazdem bode pole prochazim cely sloupec viz nasobeni matic
                         {
                             c[i, j] = c[i, j] + a.Matice[i, k] * b.Matice[k, j];                            //Nasobeni radku se sloupcem
                         }
