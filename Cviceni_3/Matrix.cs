@@ -149,7 +149,7 @@ namespace Cviceni_3
             }
             else
             {
-                throw new Exception("Rozmery matice jsou vetsi nez 3x3");                                   //Vyhozeni nove vyjimky pokud je matice vetsi nez 3x3
+                throw new Exception("Rozmery matice jsou vetsi nez 3x3 nebo neni ctvercova");               //Vyhozeni nove vyjimky pokud je matice vetsi nez 3x3
             }
 
         }

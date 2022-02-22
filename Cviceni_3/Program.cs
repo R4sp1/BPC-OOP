@@ -10,7 +10,7 @@ namespace Cviceni_3
         static void Main(string[] args)
         {
             var mat1 = new double[,] {
-                { 1, 1, 1 },
+                { 1.5, 1, 1 },
                 { 1, 1, 1 },
                 { 1, 1, 1 }
                 //{ 3, 4, 8}
