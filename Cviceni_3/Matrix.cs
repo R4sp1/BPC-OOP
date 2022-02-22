@@ -19,15 +19,15 @@ namespace Cviceni_3
         {
             try                                                                                             //try a catch pro osetreni vyjimek
             {
-                var mtx = new Matrix(new double[a.Matice.GetLength(0), a.Matice.GetLength(1)]);             //Vytvoreni nove matice
+                var mat = new Matrix(new double[a.Matice.GetLength(0), a.Matice.GetLength(1)]);             //Vytvoreni nove matice
                 for (int i = 0; i < a.Matice.GetLength(0); i++)                                             //Prochazeni jednotlivych radku
                 {
                     for (int j = 0; j < a.Matice.GetLength(1); j++)                                         //a sloupcu
                     {
-                        mtx.Matice[i, j] = a.Matice[i, j] + b.Matice[i, j];                                 //Scitani prvku v matici
+                        mat.Matice[i, j] = a.Matice[i, j] + b.Matice[i, j];                                 //Scitani prvku v matici
                     }
                 }
-                return mtx;                                                                                 //Vraceni nove matice, ktera obsahuje soucet dvou vstupnich matic
+                return mat;                                                                                 //Vraceni nove matice, ktera obsahuje soucet dvou vstupnich matic
             }
             catch
             {
@@ -43,15 +43,15 @@ namespace Cviceni_3
         {
             try
             {
-                var mtx = new Matrix(new double[a.Matice.GetLength(0), a.Matice.GetLength(1)]);             
+                var mat = new Matrix(new double[a.Matice.GetLength(0), a.Matice.GetLength(1)]);             
                 for (int i = 0; i < a.Matice.GetLength(0); i++)
                 {
                     for (int j = 0; j < a.Matice.GetLength(1); j++)
                     {
-                        mtx.Matice[i, j] = a.Matice[i, j] - b.Matice[i, j];                                 //Funguje stejne jako scitani jen v tomto pripade odcitame
+                        mat.Matice[i, j] = a.Matice[i, j] - b.Matice[i, j];                                 //Funguje stejne jako scitani jen v tomto pripade odcitame
                     }
                 }
-                return mtx;
+                return mat;
             }
             catch
             {
@@ -65,8 +65,8 @@ namespace Cviceni_3
         {
             try
             {
-                var mtx = new Matrix(new double[a.Matice.GetLength(0), a.Matice.GetLength(1)]);
-                var c = mtx.Matice;
+                var mat = new Matrix(new double[a.Matice.GetLength(0), a.Matice.GetLength(1)]);
+                var c = mat.Matice;
                 for (int i = 0; i < c.GetLength(0); i++)
                 {
                     for (int j = 0; j < c.GetLength(1); j++)
@@ -78,8 +78,8 @@ namespace Cviceni_3
                         }
                     }
                 }
-                mtx.Matice = c;
-                return mtx;
+                mat.Matice = c;
+                return mat;
             }
             catch
             {
@@ -116,16 +116,16 @@ namespace Cviceni_3
 
         public static Matrix operator -(Matrix a)                                                           //Unarni operator -
         {
-            var mtx = new Matrix(new double[a.Matice.GetLength(0), a.Matice.GetLength(1)]);
+            var mat = new Matrix(new double[a.Matice.GetLength(0), a.Matice.GetLength(1)]);
             for (int i = 0; i < a.Matice.GetLength(1); i++)
             {
                 for (int j = 0; j < a.Matice.GetLength(0); j++)
                 {
-                    mtx.Matice[j, i] = a.Matice[j, i] * (-1);                                               //Prochazim matici a kazdy prvek nasobim -1
+                    mat.Matice[j, i] = a.Matice[j, i] * (-1);                                               //Prochazim matici a kazdy prvek nasobim -1
                 }
             }
 
-            return mtx;
+            return mat;
         }
 
         public double Determinant() //Vraci determinant matice
