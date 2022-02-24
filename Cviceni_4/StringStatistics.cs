@@ -1,15 +1,22 @@
 using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace Cviceni_4{
     public class StringStatistic{
         string text;
+        string justText;
 
         public StringStatistic(string text){
             this.text = text;
+            justText = text.Replace(".", "").Replace(",", "").Replace("?", "").Replace("!", "").Replace("\n", " ").Replace("(", "").Replace(")", "");
         }
 
         public int WordCount(){
-            var count = text.Split(' ').Length;
+            var count = justText.Split(' ').Length;
             return count;
         }
 
@@ -19,14 +26,14 @@ namespace Cviceni_4{
         }
 
         public int SentenceCount(){
-            var countPeriods = text.Split('.').Length;
-            var countExclamationMarks = text.Split('!').Length;
-            var countQuestionMarks = text.Split('?').Length;
-            return countPeriods + countExclamationMarks + countQuestionMarks;
+            var sentenceString = text.Replace("\n", " ").Replace(",", "").Replace("\n", " ").Replace("(", "").Replace(")", "");
+            string[] splitSentences = Regex.Split(sentenceString, @"(?<=['""A-Za-z0-9][\.\!\?])\s+(?=[A-Z])");
+            var count = splitSentences.Length;
+            return count;
         }
 
-        public List<string> LongestWord(){
-            var justText = text.Replace(".", "").Replace(",", "").Replace("?", "").Replace("!", "");
+        public List<string> LongestWords(){
+            
             string[] wordsString = justText.Split(' ');
 
             var orderedString = wordsString.OrderBy(x => x.Length).ToList<string>();
@@ -44,8 +51,8 @@ namespace Cviceni_4{
             return finalList;
         }
 
-        public List<string> ShortestWord(){
-            var justText = text.Replace(".", "").Replace(",", "").Replace("?", "").Replace("!", "");
+        public List<string> ShortestWords(){
+            
             string[] wordsString = justText.Split(' ');
 
             var orderedString = wordsString.OrderBy(x => x.Length).ToList<string>();
