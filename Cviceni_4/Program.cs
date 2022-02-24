@@ -15,39 +15,58 @@ namespace Cviceni_4
             StringStatistic testString = new StringStatistic(testovaciText);
 
             Console.WriteLine($"\n{testovaciText}\n");
-            
+
             Console.WriteLine($"Pocet slov je: {testString.WordCount()}");
             Console.WriteLine($"Pocet radku je: {testString.LineCount()}");
             Console.WriteLine($"Pocet vet je: {testString.SentenceCount()}");
 
-            Console.Write("Nejdelsi slova: " );
-            foreach (var word in testString.LongestWords()) {
-                Console.Write(word + " ");
+            Console.Write("Nejdelsi slova: ");
+            foreach (var word in testString.LongestWords())
+            {
+                if (testString.LongestWords().IndexOf(word) == testString.LongestWords().Count - 1)
+                {
+                    Console.WriteLine(word);
+                }
+                else
+                {
+                    Console.Write(word + ", ");
+                }
             }
-            Console.WriteLine();
+
 
             Console.Write("Najkratsi slova: ");
             foreach (var word in testString.ShortestWords())
             {
-                Console.Write(word + " ");
+                if (testString.ShortestWords().IndexOf(word) == testString.ShortestWords().Count - 1)
+                {
+                    Console.WriteLine(word);
+                }
+                else
+                {
+                    Console.Write(word + ", ");
+                }
             }
-            Console.WriteLine();
 
-            Console.Write("Najcastejsi slova: ");
+
+            Console.Write("Najcastejsi slovo: ");
             foreach (var word in testString.MostWords())
             {
-                Console.Write(word + " ");
+                Console.Write(word);
             }
             Console.WriteLine();
 
             Console.Write("Slova podle abecedy: ");
             foreach (var word in testString.WordsByAlphabet())
             {
-                Console.Write(word+", ");
+                if (testString.WordsByAlphabet().IndexOf(word) == testString.WordsByAlphabet().Count - 1)
+                {
+                    Console.WriteLine(word + "\n");
+                }
+                else
+                {
+                    Console.Write(word + ", ");
+                }
             }
-            Console.WriteLine();
-
-            Console.WriteLine();
         }
     }
 }
