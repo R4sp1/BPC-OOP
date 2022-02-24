@@ -68,5 +68,30 @@ namespace Cviceni_4{
 
             return finalList;
         }
+
+        public string[] MostWords(){
+            
+
+            string[] wordsString = justText.Split(' ');
+
+            var nameGroup = wordsString.GroupBy(x => x);
+            var maxCount = nameGroup.Max(g => g.Count());
+            var finalList = nameGroup.Where(x => x.Count() == maxCount).Select(x => x.Key).ToArray();
+            
+            return finalList;
+        }
+
+        public List<string> WordsByAlphabet()
+        {
+            string[] wordsString = justText.Split(' ');
+
+            var list = new List<string>();
+            foreach (var word in wordsString)
+            {
+                list.Add(word);
+            }
+            list.Sort();
+            return list;
+        }
     }
 }

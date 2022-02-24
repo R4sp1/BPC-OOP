@@ -31,7 +31,21 @@ namespace Cviceni_4
             {
                 Console.Write(word + " ");
             }
-            Console.WriteLine("");
+            Console.WriteLine();
+
+            Console.Write("Najcastejsi slova: ");
+            foreach (var word in testString.MostWords())
+            {
+                Console.Write(word + " ");
+            }
+            Console.WriteLine();
+
+            Console.Write("Slova podle abecedy: ");
+            foreach (var word in testString.WordsByAlphabet())
+            {
+                Console.Write(word+", ");
+            }
+            Console.WriteLine();
 
             Console.WriteLine();
         }
