@@ -40,7 +40,6 @@ namespace Cviceni_4
 
         public List<string> LongestWords()
         {
-
             string[] wordsString = justText.Split(' ');
 
             var orderedString = wordsString.OrderBy(x => x.Length).ToList<string>();
@@ -77,14 +76,11 @@ namespace Cviceni_4
                     finalList.Add(word);
                 }
             }
-
             return finalList;
         }
 
         public string[] MostWords()
         {
-
-
             string[] wordsString = justText.Split(' ');
 
             var nameGroup = wordsString.GroupBy(x => x);
