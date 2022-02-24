@@ -12,5 +12,10 @@ namespace Cviceni_4{
             var count = text.Split(' ').Length;
             return count;
         }
+
+        public int LineCount(){
+            var count = text.Split('\n').Length;
+            return count;
+        }
     }
 }
