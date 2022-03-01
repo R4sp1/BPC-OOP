@@ -1,9 +1,6 @@
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace Cviceni_4
 {
@@ -12,25 +9,25 @@ namespace Cviceni_4
         string text;
         string justText;
 
-        public StringStatistic(string text)
+        public StringStatistic(string text)                                                         //Konstruktor
         {
             this.text = text;
             justText = text.Replace(".", "").Replace(",", "").Replace("?", "").Replace("!", "").Replace("\n", " ").Replace("(", "").Replace(")", "");
         }
 
-        public int WordCount()
+        public int WordCount()                                                                      //Pocet slov
         {
             var count = justText.Split(' ').Length;
             return count;
         }
 
-        public int LineCount()
+        public int LineCount()                                                                      //Pocet radku
         {
             var count = text.Split('\n').Length;
             return count;
         }
 
-        public int SentenceCount()
+        public int SentenceCount()                                                                  //Pocet vet
         {
             var sentenceString = text.Replace("\n", " ").Replace(",", "").Replace("\n", " ").Replace("(", "").Replace(")", "");
             string[] splitSentences = Regex.Split(sentenceString, @"(?<=['""A-Za-z0-9][\.\!\?])\s+(?=[A-Z])");
@@ -38,14 +35,14 @@ namespace Cviceni_4
             return count;
         }
 
-        public List<string> LongestWords()
+        public List<string> LongestWords()                                                          //List nejdelsich slov
         {
             string[] wordsString = justText.Split(' ');
 
-            var orderedString = wordsString.OrderBy(x => x.Length).ToList<string>();
-            orderedString.Reverse();
+            var orderedString = wordsString.OrderBy(x => x.Length).ToList<string>();                //Razeni od nejkratsich slov
+            orderedString.Reverse();                                                                //Pro nejdelsi slova pouze string otočím
 
-            var finalList = new List<string>();
+            var finalList = new List<string>();                                                     //Vytvoreni listu nejdelsich slov
             var len = 0;
             foreach (var word in orderedString)
             {
@@ -59,7 +56,7 @@ namespace Cviceni_4
             return finalList;
         }
 
-        public List<string> ShortestWords()
+        public List<string> ShortestWords()                                                         //List nejkratsich slov
         {
 
             string[] wordsString = justText.Split(' ');
@@ -79,7 +76,7 @@ namespace Cviceni_4
             return finalList;
         }
 
-        public string[] MostWords()
+        public string[] MostWords()                                                                 //Pole nejpouzivanejsich slov
         {
             string[] wordsString = justText.Split(' ');
 
@@ -90,7 +87,7 @@ namespace Cviceni_4
             return finalList;
         }
 
-        public List<string> WordsByAlphabet()
+        public List<string> WordsByAlphabet()                                                       //List slov serazenych podle abecedy
         {
             string[] wordsString = justText.Split(' ');
 
