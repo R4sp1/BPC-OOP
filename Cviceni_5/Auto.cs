@@ -34,9 +34,13 @@ namespace Cviceni_5
             {
                 stavNadrze += mnozstvi;
             }
+            else if(this.palivo != palivo)
+            {
+                throw new Exception("Spatny typ paliva!");
+            }
             else
             {
-                throw new Exception("Spatne mnozstvi nebo typ paliva!");
+                throw new Exception("Spatne mnozstvi paliva!");
             }
         }
 

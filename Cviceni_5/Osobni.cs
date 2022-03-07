@@ -17,13 +17,19 @@ namespace Cviceni_5
                 prepravovaneOsoby = pocetOsob;
                 palivo = mojePalivo;
             }
+            else if (stavNadrze > velikostNadrze)
+            {
+                throw new Exception($"Presahnute max mnozstvi paliva u osobniho auta! Max mnozstvi je: {velikostNadrze}!");
+            }
             else
-                throw new Exception("Presahnuty max pocet osob ve vozidle nebo presahnuta velikost nadrze!");
+            {
+                throw new Exception($"Presahnuty max pocet osob! Max pocet osob je: {maxOsob}");
+            }
         }
 
         public override string ToString()
         {
-            return String.Format($"Prepravovano osob: {prepravovaneOsoby}, Stav nadrze: {stavNadrze}, Typ paliva: {palivo}");
+            return String.Format($"Prepravovano osob: {prepravovaneOsoby}\t Paliva v nadrzi: {stavNadrze} l\t Typ paliva: {palivo}");
         }
     }
 }

@@ -46,7 +46,7 @@ namespace Cviceni_5
         {
             if (radioZapnuto)
             {
-                return String.Format($"Radio zapnuto, Naladeny kmitocet: {naladenyKmitocet}");
+                return String.Format($"Radio zapnuto\t Naladeny kmitocet: {naladenyKmitocet} fm");
             }
             else
                 return String.Format($"Radio vypnuto!");

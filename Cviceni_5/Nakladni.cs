@@ -5,25 +5,31 @@ namespace Cviceni_5
     class Nakladni : Auto
     {
         private int maxNaklad;
-        private int prepravovanyNaklad;
+        private int vahaNakladu;
 
         public Nakladni(int velikostNakladu, double stavNadrze, TypPaliva palivo) : base(stavNadrze, palivo)
         {
-            maxNaklad = 100;
+            maxNaklad = 25;
             velikostNadrze = 120;
 
             if (velikostNakladu <= maxNaklad && stavNadrze <= velikostNadrze)
             {
-                prepravovanyNaklad = velikostNakladu;
+                vahaNakladu = velikostNakladu;
                 this.palivo = palivo;
             }
+            else if (stavNadrze > velikostNadrze)
+            {
+                throw new Exception($"Presahnute max mnozstvi paliva u nakladniho auta! Max mnozstvi je: {velikostNadrze}!");
+            }
             else
-                throw new Exception("Presahnuta max vaha nakladu nebo max velikost nadrze!");
+            {
+                throw new Exception($"Presahnuta max vaha nakladu! Max vaha je: {maxNaklad}!");
+            }
         }
 
         public override string ToString()
         {
-            return String.Format($"Prepravovany naklad: {prepravovanyNaklad}, Stav nadrze: {stavNadrze}, Typ paliva: {palivo}");
+            return String.Format($"Vaha nakladu: {vahaNakladu} t\t Paliva v nadrzi: {stavNadrze} l\t Typ paliva: {palivo}");
         }
     }
 }
