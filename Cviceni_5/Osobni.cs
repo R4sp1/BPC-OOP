@@ -7,12 +7,12 @@ namespace Cviceni_5
         private int maxOsob;
         private int prepravovaneOsoby;
 
-        public Osobni(int pocetOsob, double stavNadrze, TypPaliva mojePalivo):base(stavNadrze, mojePalivo)
+        public Osobni(int pocetOsob, double stavNadrze, TypPaliva mojePalivo) : base(stavNadrze, mojePalivo)
         {
             maxOsob = 5;
             velikostNadrze = 70;
 
-            if(pocetOsob <= maxOsob && stavNadrze <= velikostNadrze)
+            if (pocetOsob <= maxOsob && stavNadrze <= velikostNadrze)
             {
                 prepravovaneOsoby = pocetOsob;
                 palivo = mojePalivo;

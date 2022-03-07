@@ -7,12 +7,12 @@ namespace Cviceni_5
     {
         private double naladenyKmitocet;
         private bool radioZapnuto = false;
-        private Dictionary<int,double> vsechnyKmitocty;
+        private Dictionary<int, double> vsechnyKmitocty;
         private int total = 0;
 
-        public void zapnoutRadio(bool zapVyp)
+        public void prepinacRadio(bool radioState)
         {
-            if (zapVyp)
+            if (radioState)
             {
                 radioZapnuto = true;
             }
@@ -20,23 +20,23 @@ namespace Cviceni_5
                 radioZapnuto = false;
         }
 
-        public void nastavPredvolbu(int cislo, double kmitocet)
+        public void nastavPredvolbu(int num, double freq)
         {
             if (total == 0)
             {
                 vsechnyKmitocty = new Dictionary<int, double>();
                 total++;
-                vsechnyKmitocty.Add(cislo, kmitocet);
+                vsechnyKmitocty.Add(num, freq);
             }
             else
-                vsechnyKmitocty.Add(cislo, kmitocet);
+                vsechnyKmitocty.Add(num, freq);
         }
 
-        public void preladNaPredvolbu(int cislo)
+        public void preladNaPredvolbu(int num)
         {
-            if (vsechnyKmitocty.ContainsKey(cislo))
+            if (vsechnyKmitocty.ContainsKey(num))
             {
-                naladenyKmitocet = vsechnyKmitocty[cislo];
+                naladenyKmitocet = vsechnyKmitocty[num];
             }
             else
                 throw new Exception("Spatne zaday kmitocet!");
@@ -46,10 +46,10 @@ namespace Cviceni_5
         {
             if (radioZapnuto)
             {
-                return String.Format($"Zapnuto: {radioZapnuto}, Naladeny kmitocet: {naladenyKmitocet}");
+                return String.Format($"Radio zapnuto, Naladeny kmitocet: {naladenyKmitocet}");
             }
             else
-                return String.Format($"Zapnuto: {radioZapnuto}");
+                return String.Format($"Radio vypnuto!");
         }
     }
 }

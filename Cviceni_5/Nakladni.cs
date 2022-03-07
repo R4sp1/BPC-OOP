@@ -7,7 +7,7 @@ namespace Cviceni_5
         private int maxNaklad;
         private int prepravovanyNaklad;
 
-        public Nakladni(int velikostNakladu, double stavNadrze, TypPaliva palivo):base(stavNadrze, palivo)
+        public Nakladni(int velikostNakladu, double stavNadrze, TypPaliva palivo) : base(stavNadrze, palivo)
         {
             maxNaklad = 100;
             velikostNadrze = 120;

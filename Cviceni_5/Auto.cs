@@ -19,12 +19,13 @@ namespace Cviceni_5
         public double VelikostNadrze
         {
             get { return velikostNadrze; }
-            set{stavNadrze = value;}
+            set { stavNadrze = value; }
         }
 
-        public TypPaliva Palivo{
-            get{return palivo;}
-            set{palivo = value;}
+        public TypPaliva Palivo
+        {
+            get { return palivo; }
+            set { palivo = value; }
         }
 
         public void natankuj(TypPaliva palivo, double mnozstvi)
@@ -39,19 +40,19 @@ namespace Cviceni_5
             }
         }
 
-        public void nastavRadio(bool zapVyp)
+        public void prepinacRadio(bool radioState)
         {
-            radio.zapnoutRadio(zapVyp);
+            radio.prepinacRadio(radioState);
         }
 
-        public void nastavPredvolbu(int cislo, double kmitocet)
+        public void nastavPredvolbu(int num, double freq)
         {
-            radio.nastavPredvolbu(cislo, kmitocet);
+            radio.nastavPredvolbu(num, freq);
         }
 
-        public void preladNaPredvolbu(int cislo)
+        public void preladNaPredvolbu(int num)
         {
-            radio.preladNaPredvolbu(cislo);
+            radio.preladNaPredvolbu(num);
         }
         public void vypisRadio()
         {
