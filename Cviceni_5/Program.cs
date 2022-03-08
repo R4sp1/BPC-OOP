@@ -17,16 +17,17 @@ namespace Cviceni_5
             osobak.nastavPredvolbu(2, 104.3);                                   //Nastaveni predvolby cislo 2 s frekvenci 104.3
             osobak.preladNaPredvolbu(2);                                        //Prelazeni radia na predvobu cislo 2
             osobak.vypisRadio();                                                //Vypis nastaveni radia
-            osobak.preladNaPredvolbu(2);                                        //Prelazeni na predvolbu 2
+            osobak.preladNaPredvolbu(1);
+            //osobak.preladNaPredvolbu(3);                                        //Prelazeni na predvolbu 2
             osobak.prepinacRadio(false);                                        //Vypnuti radia
             osobak.vypisRadio();                                                //Vypis nastaveni radia
 
             Console.WriteLine(osobak);                                          //Vypis parametru osobniho auta
             Console.WriteLine(nakladak);                                        //Vypis parametru nakladniho auta
 
-            //osobak.natankuj(Auto.TypPaliva.Nafta, 5);
+            osobak.natankuj(Auto.TypPaliva.Nafta, 5);
             //nakladak.natankuj(Auto.TypPaliva.Nafta, 200);
-            //Console.WriteLine(osobak);
+            Console.WriteLine(osobak);
             //Console.WriteLine(nakladak);
         }
     }

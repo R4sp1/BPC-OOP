@@ -34,12 +34,17 @@ namespace Cviceni_5
 
         public void preladNaPredvolbu(int num)
         {
-            if (vsechnyKmitocty.ContainsKey(num))
+            //if (vsechnyKmitocty.ContainsKey(num))
+            try
             {
                 naladenyKmitocet = vsechnyKmitocty[num];
             }
-            else
-                throw new Exception("Spatne zaday kmitocet!");
+            catch(Exception e)
+            {
+                //throw new Exception($"Predvolba {num} neni nastavena!", e);
+                //new ArgumentOutOfRangeException();
+                Console.WriteLine(e);
+            } 
         }
 
         public override string ToString()
