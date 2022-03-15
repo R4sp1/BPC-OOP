@@ -36,18 +36,19 @@ namespace Cviceni_6
                     povrch += ((Objekt3D)item).SpoctiPovrch();      //Pokud je objekt 3D vypočte se povrch a objem
                     objem += ((Objekt3D)item).SpoctiObjem();
 
-                    double povrchObjektu = ((Objekt3D)item).SpoctiPovrch();
-                    double objemObjektu = ((Objekt3D)item).SpoctiObjem();
+                    double povrchObjektu = Math.Round(((Objekt3D)item).SpoctiPovrch(), 2);
+                    double objemObjektu = Math.Round(((Objekt3D)item).SpoctiObjem(), 2);
+
 
                     Console.WriteLine($"Povrch {(Objekt3D)item} je: {povrchObjektu}, objem je: {objemObjektu}");
                 }
             }
 
-            /*
-            plocha = Math.Round(plocha, 4);                         //Zaokrouhlovani na 4 desetinna mista
-            povrch = Math.Round(povrch, 4);
-            objem = Math.Round(objem, 4);
-            */
+            
+            plocha = Math.Round(plocha, 3);                         //Zaokrouhlovani na 3 desetinna mista
+            povrch = Math.Round(povrch, 3);
+            objem = Math.Round(objem, 3);
+            
 
             Console.WriteLine($"\nCelkova plocha je:\t{plocha}\ncelkovy povrch je:\t{povrch}\ncelkovy objem je:\t{objem}");
 
