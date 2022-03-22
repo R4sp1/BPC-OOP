@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 
 namespace Cviceni_7
 {
@@ -6,28 +7,12 @@ namespace Cviceni_7
     {
         public static T Nejvetsi<T>(params T[] values) where T : IComparable
         {
-            T max = values[0];
-            for (int i = 1; i < values.Length; i++)
-            {
-                if (values[i].CompareTo(max) > 0)
-                {
-                    max = values[i];
-                }
-            }
-            return max;
+            return values.Max(();
         }
 
         public static T Nejmensi<T>(params T[] values) where T : IComparable
         {
-            T min = values[0];
-            for (int i = 1; i < values.Length; i++)
-            {
-                if (values[i].CompareTo(min) < 0)
-                {
-                    min = values[i];
-                }
-            }
-            return min;
+            return values.Min();
         }
     }
 }
