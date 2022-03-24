@@ -7,7 +7,7 @@ namespace Cviceni_7
     {
         public static T Nejvetsi<T>(params T[] values) where T : IComparable
         {
-            return values.Max(();
+            return values.Max();
         }
 
         public static T Nejmensi<T>(params T[] values) where T : IComparable
