@@ -14,18 +14,13 @@ namespace Cviceni_8
         private double rok;
         private List<double> mesicniTeploty;
 
-        public RocniTeplota(double rok, List<double> mesicniTeploty)
+        public RocniTeplota(double rok, List<double> mesicniTeploty)        //Konstruktor
         {
             this.rok = rok;
             this.mesicniTeploty = new List<double>();
             this.mesicniTeploty = mesicniTeploty;
         }
-        public int pocet()
-        {
-            return mesicniTeploty.Count;
-        }
-
-
+        
         public double Rok
         {
             get { return rok; }
@@ -42,7 +37,7 @@ namespace Cviceni_8
         private double minTeplota;
         private double prumRocniTeplota;
 
-        public double MaxTeplota
+        public double MaxTeplota                                    //Pouze GET metoda, protoze promena je jen pro cteni
         {
             get
             {
@@ -59,7 +54,7 @@ namespace Cviceni_8
         }
 
 
-        public double MinTeplota
+        public double MinTeplota                                    //Pouze GET metoda, protoze promena je jen pro cteni
         {
             get
             {
@@ -75,7 +70,7 @@ namespace Cviceni_8
             }
         }
 
-        public double PrumRocniTeplota
+        public double PrumRocniTeplota                              //Pouze GET metoda, protoze promena je jen pro cteni
         {
             get
             {

@@ -13,7 +13,7 @@ namespace Cviceni_8
 
         private SortedDictionary<double, RocniTeplota> _archiv;
 
-        public void Load(string pathToFile)
+        public void Load(string pathToFile)                                 //Otevreni souboru
         {
             StreamReader reader = File.OpenText(pathToFile);
             _archiv = new SortedDictionary<double, RocniTeplota>();
@@ -21,7 +21,7 @@ namespace Cviceni_8
             double cislo = 0;
 
             string radek = null;
-            while ((radek = reader.ReadLine()) != null)
+            while ((radek = reader.ReadLine()) != null)                     //Dokud radek neni null
             {
                 List<double> teploty = new List<double>();
                 radek = radek.Replace(" ", "");
@@ -46,7 +46,7 @@ namespace Cviceni_8
         }
 
 
-        public void Save(string pathToFile)
+        public void Save(string pathToFile)                                     //Ulozeni do souboru
         {
             StreamWriter writer = File.CreateText(pathToFile);
 

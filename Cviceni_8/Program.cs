@@ -6,21 +6,21 @@ namespace Cviceni_8
     {
         static void Main(string[] args)
         {
-            string pathRead = @"Cv08 - teploty.txt";
-            string pathWrite = @"Cv08 - teploty(upraveno).txt";
+            string pathRead = @"C:\Users\jirka\Documents\GitHub\OOP\Cviceni_8\Cv08 - teploty.txt";
+            string pathWrite = @"C:\Users\jirka\Documents\GitHub\OOP\Cviceni_8\Cv08 - teploty(upraveno).txt";
 
             ArchivTeplot teploty = new ArchivTeplot();
 
-            teploty.Load(pathRead);
-            teploty.TiskTeplot();
-            teploty.TiskPrumernychTeplot();
-            teploty.TiskPrumernychMesicnichTeplot();
+            teploty.Load(pathRead);                                 //Nacteni souboru
+            teploty.TiskTeplot();                                   //Zobrazeni tplot ze souboru
+            teploty.TiskPrumernychTeplot();                         //Zobrazeni prumernych teplot
+            teploty.TiskPrumernychMesicnichTeplot();                //Zobrazeni prumernych mesicnich teplot
 
-            teploty.Kalibrace(-0.1);
-            teploty.Vyhledej(2013);
+            teploty.Kalibrace(0.1);                                //Kalibrace zadanou hodnotou
+            teploty.Vyhledej(2013);                                 //Vyhledání a vypsani zadaneho roku
 
-            teploty.Save(pathWrite);
-
+            teploty.Save(pathWrite);                                //Ulozeni do noveho souboru
+            //Console.ReadLine();
         }
     }
 }
