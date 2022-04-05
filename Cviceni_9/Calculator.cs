@@ -1,18 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Controls;
-using System.Windows;
+
 
 namespace Cviceni_9
 {
     class Calculator
     {
         private Stav _stav = Stav.PrvniCislo;
-        public String Display { get; set; }     //co se má zobrazit.
-        public String Pamet { get; set; }       //vzdy prazdne
+        public String Display { get; set; }
+        public String Pamet { get; set; }
 
         private string one = "";
         private Operace operation;
