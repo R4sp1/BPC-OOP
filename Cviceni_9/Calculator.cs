@@ -234,7 +234,7 @@ namespace Cviceni_9
             var o = Convert.ToDouble(one);
             double ans = 0;
 
-            switch(operation)
+            switch (operation)
             {
                 case Operace.KajuvKoeficient:
                     ans = o * 0.265;
@@ -244,8 +244,5 @@ namespace Cviceni_9
 
             return "" + ans;
         }
-
     }
-
-
 }

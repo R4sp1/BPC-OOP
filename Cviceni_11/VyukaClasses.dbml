@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="C:\USERS\STUDENT\DESKTOP\CVICENI_10\VYUKA.MDF" Class="VyukaClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-VVF6343;Initial Catalog=C:\USERS\STUDENT\DESKTOP\CVICENI_10\VYUKA.MDF;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False" SettingsObjectName="Cv11.Properties.Settings" SettingsPropertyName="C__USERS_STUDENT_DESKTOP_CVICENI_10_VYUKA_MDFConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Hodnoceni" Member="Hodnocenis">
+    <Type Name="Hodnoceni">
+      <Column Name="StudentKey" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PredmetKey" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Date" Type="System.DateTime" DbType="Date NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Hodnoceni" Member="Hodnoceni1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Predmet_Hodnoceni" Member="Predmet" ThisKey="PredmetKey" OtherKey="Zkratka" Type="Predmet" IsForeignKey="true" />
+      <Association Name="Student_Hodnoceni" Member="Student" ThisKey="StudentKey" OtherKey="Id" Type="Student" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Predmet" Member="Predmets">
+    <Type Name="Predmet">
+      <Column Name="Zkratka" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Nazev" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="Predmet_Hodnoceni" Member="Hodnocenis" ThisKey="Zkratka" OtherKey="PredmetKey" Type="Hodnoceni" />
+      <Association Name="Predmet_StudentPredmet" Member="StudentPredmets" ThisKey="Zkratka" OtherKey="PredmetKey" Type="StudentPredmet" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Student" Member="Students">
+    <Type Name="Student">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Surname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DateOfBirth" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Association Name="Student_Hodnoceni" Member="Hodnocenis" ThisKey="Id" OtherKey="StudentKey" Type="Hodnoceni" />
+      <Association Name="Student_StudentPredmet" Member="StudentPredmets" ThisKey="Id" OtherKey="StudentKey" Type="StudentPredmet" />
+    </Type>
+  </Table>
+  <Table Name="dbo.StudentPredmet" Member="StudentPredmets">
+    <Type Name="StudentPredmet">
+      <Column Name="StudentKey" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PredmetKey" Type="System.String" DbType="VarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Association Name="Predmet_StudentPredmet" Member="Predmet" ThisKey="PredmetKey" OtherKey="Zkratka" Type="Predmet" IsForeignKey="true" />
+      <Association Name="Student_StudentPredmet" Member="Student" ThisKey="StudentKey" OtherKey="Id" Type="Student" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ConnectedView" Member="ConnectedViews">
+    <Type Name="ConnectedView">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Name" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Surname" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="DateOfBirth" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+      <Column Name="StudentKey" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="PredmetKey" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Zkratka" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="Nazev" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>
